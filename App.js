@@ -1,10 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { useFonts } from 'expo-font';
 
 export default function App() {
+  const [fontsLoaded] = useFonts ({
+    "Poppins": require("./src/assets/fonts/Poppins-Italic.ttf")
+  })
+
+  if (!fontsLoaded) {
+    return null
+  }
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text style={{fontFamily: "Poppins"}}>Open up App.js to start working on your app!</Text>
       <StatusBar style="auto" />
     </View>
   );
