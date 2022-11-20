@@ -1,14 +1,25 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { Button, StyleSheet, Text, View } from "react-native";
+import React from "react";
 
-const CategoriesScreen = () => {
+const CategoriesScreen = ({navigation}) => {
   return (
-    <View>
-      <Text>CategoriesScreen</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>CategoriesScreen</Text>
+      <Button title="Go to Bread" onPress={() => navigation.navigate("Bread")} />
     </View>
-  )
-}
+  );
+};
 
-export default CategoriesScreen
+export default CategoriesScreen;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#FF724C",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  title: {
+    fontFamily: "Tillana",
+  },
+});
