@@ -19,6 +19,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   title: {
-    fontFamily: "Tillana",
+    fontFamily: "Poppins",
   },
 })

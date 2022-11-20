@@ -18,11 +18,11 @@ export default CategoryBreadScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FDBF50",
+    backgroundColor: "#9b5de5",
     alignItems: "center",
     justifyContent: "center",
   },
   title: {
-    fontFamily: "Tillana",
+    fontFamily: "Poppins",
   },
 });
