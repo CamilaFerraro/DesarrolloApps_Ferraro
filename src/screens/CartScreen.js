@@ -1,47 +1,49 @@
 import { StyleSheet, Text, TouchableOpacity, View, FlatList } from 'react-native'
 import React from 'react'
-import { CART } from '../data/cart'
 import CartItem from '../components/CartItem'
+import { useSelector, useDispatch } from 'react-redux'
+import {removeItem} from "../store/actions/cart.action"
 
 const CartScreen = () => {
-    const items = CART;
-    const total = 120;
-
+    const dispatch = useDispatch();
+    const items = useSelector((state) => state.cart.items);
+    const total = useSelector((state) => state.cart.total);
+  
     const handleConfirmCart = () => {
-        console.log("Confirmar carrito")
-    }
-
-    const handleDeleteItem = ()=> {
-        console.log("Eliminar item")
-    }
-
-    const renderItem = ({item}) => (
-        <CartItem item={item} onDelete={handleDeleteItem}/>
+      dispatch(confirmCart(items, total));
+    };
+  
+    const handleDeleteItem = (id) => {
+      dispatch(removeItem(id));
+    };
+  
+    const renderItem = ({ item }) => (
+      <CartItem item={item} onDelete={handleDeleteItem} />
     );
-
-  return (
-    <View style={styles.container}>
-      <View style={styles.lista}>
-        <FlatList
-        data={items}
-        keyExtractor={(item) => item.id}
-        renderItem={renderItem}
-        />
-      </View>
-      <View style={styles.footer}>
-        <TouchableOpacity style={styles.confirm}>
+  
+    return (
+      <View style={styles.container}>
+        <View style={styles.list}>
+          <FlatList
+            data={items}
+            keyExtractor={(item) => item.id}
+            renderItem={renderItem}
+          />
+        </View>
+        <View style={styles.footer}>
+          <TouchableOpacity style={styles.confirm} onPress={handleConfirmCart}>
             <Text>Confirmar</Text>
             <View style={styles.total}>
-                <Text style={styles.text}>Total</Text>
-                <Text style={styles.text}>{total}</Text>
+              <Text style={styles.text}>Total</Text>
+              <Text style={styles.text}>{total}</Text>
             </View>
-        </TouchableOpacity>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
-  )
-}
-
-export default CartScreen
+    );
+  };
+  
+export default CartScreen;
 
 const styles = StyleSheet.create({
     container: {
@@ -50,7 +52,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
         paddingBottom: 120,
     },
-    lista: {
+    list: {
         flex: 1,
     },
     footer: {

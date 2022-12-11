@@ -1,0 +1,1 @@
+export const URL_API = "https://console.firebase.google.com/u/0/project/ferraroscatering-1bfb3/database/ferraroscatering-1bfb3-default-rtdb/data/~2F"
