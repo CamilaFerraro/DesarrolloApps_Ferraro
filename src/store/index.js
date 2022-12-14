@@ -4,12 +4,14 @@ import BreadReducer from "./reducers/breads.reducer";
 import thunk from "redux-thunk";
 import CartReducer from "./reducers/cart.reducer";
 import OrderReducer from "./reducers/order.reducer";
+import AuthReducer from "./reducers/auth.reducer";
 
 const RootReducer = combineReducers({
     categories: CategoryReducer,
-    bereads: BreadReducer,
+    breads: BreadReducer,
     cart: CartReducer,
-    orders: OrderReducer
+    orders: OrderReducer,
+    auth: AuthReducer,
 });
 
 export default createStore(RootReducer, applyMiddleware(thunk));

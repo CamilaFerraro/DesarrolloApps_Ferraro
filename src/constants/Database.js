@@ -1,1 +1,2 @@
 export const URL_API = "https://console.firebase.google.com/u/0/project/ferraroscatering-1bfb3/database/ferraroscatering-1bfb3-default-rtdb/data/~2F"
+export const URL_AUTH_SIGNUP = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyA7U-yGVIUWswoV9Kg3hRD9WihYwCGb3_8"
